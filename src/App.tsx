@@ -28,11 +28,11 @@ const art = {
 };
 
 const events = [
-  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 47 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 38.3 },
   { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 47 },
-  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 57.5 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 48.9 },
   { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 57.5 },
-  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 68 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 59.5 },
   { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 68 },
 ];
 
@@ -126,6 +126,11 @@ export function App() {
           </div>
           <div className="timelinePhotoRing">
             {[
+              "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=400&fit=crop",
               "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=400&fit=crop",
               "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
               "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=400&fit=crop",
