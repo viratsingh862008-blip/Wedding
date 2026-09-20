@@ -1,23 +1,144 @@
-import {useEffect,useState} from 'react';import{motion,useScroll,useTransform}from'motion/react';import{ChevronDown,MapPin,CalendarDays,Clock,Heart}from'lucide-react';
+import { motion } from "motion/react";
+import { ParallaxLayer } from "@/components/wedding/ParallaxLayer";
 
-const A='https://framerusercontent.com/images/';
-const assets={hero:A+'ctlwo5LpuBk9eskYOT9Z2MD8wso.webp?width=868&height=4326',portrait:A+'TUkRvFIUDwblbb4eewkBlJzZwJw.png?width=1515&height=2342',arch:A+'Zrnq96rxcNCLdk4Yaz94Dup5Q.webp?width=886&height=464',couple:A+'qTlCAkdnbuZVEx4RAWSlgsGHX0.webp?width=1200&height=968',scene:A+'fXdVaVM1Iocp7HSsFNQd7A9zHrw.webp?width=1515&height=1010',temple:A+'VSWKtKY9anp40BO4QazdQK473tQ.webp?width=1515&height=1058',detail:A+'w2VucNwOfPZvxA8ibgdnaWF7T4.webp?width=1200&height=968'};
-const events=[['Engagement','Friday','29 Aug 2026','Pune, Maharashtra','6 PM Onwards'],['Haldi','Saturday','30 Aug 2026','The Courtyard','11 AM Onwards'],['Mehendi','Saturday','30 Aug 2026','Heritage House','4 PM Onwards'],['Wedding','Sunday','31 Aug 2026','Ram Mandir','7 PM Onwards']];
-function Countdown(){const target=new Date('2026-08-31T19:00:00+05:30').getTime();const[time,setTime]=useState(target-Date.now());useEffect(()=>{const i=setInterval(()=>setTime(target-Date.now()),1000);return()=>clearInterval(i)},[]);const s=Math.max(0,Math.floor(time/1000));const vals=[Math.floor(s/86400),Math.floor(s/3600)%24,Math.floor(s/60)%60,s%60];return <div className="count">{vals.map((v,i)=><div className="countBox" key={i}><b>{String(v).padStart(2,'0')}</b><span>{['Days','Hours','Minutes','Seconds'][i]}</span></div>)}</div>}
-export function App(){const{scrollYProgress}=useScroll();const bg=useTransform(scrollYProgress,[0,.18],[0,-80]);const mid=useTransform(scrollYProgress,[0,.18],[0,-180]);const fg=useTransform(scrollYProgress,[0,.18],[0,-340]);const fade=useTransform(scrollYProgress,[0,.12, .2],[1,1,0]);return <main>
-<section className="hero"><motion.img style={{y:bg}} className="heroImg" src={assets.hero}/><div className="heroShade"/><motion.div style={{y:mid}} className="heroLayer"><img src={assets.arch}/></motion.div><motion.div style={{y:fg}} className="heroContent"><div className="eyebrow">A DIVINE WEDDING INVITATION</div><motion.div style={{opacity:fade}}><h1>Shaadi</h1><p className="script">with blessings of Ram</p><div className="heroMeta"><span>29 — 31 AUGUST 2026</span><i>•</i><span>PUNE, MAHARASHTRA</span></div></motion.div></motion.div><motion.div style={{opacity:fade}} className="scrollHint"><ChevronDown size={18}/><span>More details below</span></motion.div></section>
+const IMG = "https://framerusercontent.com/images/";
 
-<section className="intro section"><div className="ornament">✦</div><p className="kicker">SHUBH VIVAH</p><h2>Two hearts,<br/><em>one sacred journey.</em></h2><p className="lead">With the blessings of the divine, our families invite you to celebrate a beautiful beginning filled with love, laughter and timeless traditions.</p></section>
+const art = {
+  hero: IMG + "ctlwo5LpuBk9eskYOT9Z2MD8wso.webp?width=868&height=4326",
+  eventCard: IMG + "TUkRvFIUDwblbb4eewkBlJzZwJw.png?width=1515&height=2342",
+  logo: IMG + "pyLtbhSLIRf4NHAy72amY2aW58.webp?width=330&height=130",
+  flowerSeal: IMG + "ciPCtoLf1PEnCNBnsx6boOBPU.webp?width=280&height=280",
+  sideRight: IMG + "gt4WrIeOxcZz1kQLQ9ovWBkpc.webp?width=140&height=202",
+  sideLeft: IMG + "dU6QWYOyKfqMfHH3mCT84Z3dAJE.webp?width=142&height=205",
+  sideLeftAlt: IMG + "lsI4FJ0BeiT9e8FhL5WYmPRlnyY.webp?width=143&height=206",
+  mandap: IMG + "vo85LJWiG7KY5sTcDsBhG1aEc.webp?width=869&height=948",
+  hanging: IMG + "plRMuObVZgXFVWzrOuY2xNVRHHs.webp?width=116&height=607",
+  ramMark: IMG + "kJ6ukGxpOPVxnwLybHzfIL3VtkM.webp?width=168&height=52",
+  diya: IMG + "5FVM3OmFePuLZFoKyYpESSXgaE.webp?width=94&height=130",
+  floralWordmark: IMG + "dRCMDT9ufGWEZehulDCNdJpwaLs.webp?width=390&height=79",
+  story: IMG + "Vmh2DwpF7PAgb69W6NahdCwGidA.webp?width=876&height=3156",
+  bellA: IMG + "BETBi0AtFY20asJ3PfAMAFe8g.png?width=41&height=293",
+  bellB: IMG + "XegR81dMLWk0YMirVBF6rsfAs3Y.png?width=41&height=293",
+  collageTop: IMG + "Zrnq96rxcNCLdk4Yaz94Dup5Q.webp?width=886&height=464",
+  collageOne: IMG + "qTlCAkdnbuZVEx4RAWSlgsGHX0.webp?width=1200&height=968",
+  collageTwo: IMG + "jv9Y5c65dupWuUvOrLUvDm6o.webp?width=1200&height=1189",
+  collageCenter: IMG + "CAJYZSTyHrLw4D8Gxv3UGjFaMg.webp?width=400&height=339",
+  collageBg: IMG + "ELVgHUKqtqAl9gf1nwbYhSeTg.webp?width=1200&height=968",
+  timeline: IMG + "hUKMKAtrpqFCDTXl35Y5yuIjRw.webp?width=866&height=3244",
+};
 
-<section className="photoBand"><img src={assets.scene}/><div className="photoCaption"><span>THE CELEBRATION</span><h3>Moments that become memories.</h3></div></section>
+const events = [
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 47 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 47 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 57.5 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 57.5 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 68 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 68 },
+];
 
-<section className="events section"><p className="kicker">THE ITINERARY</p><h2>Join us for every <em>chapter.</em></h2><div className="eventGrid">{events.map((e,i)=><motion.article whileHover={{y:-8}} className="eventCard" key={e[0]}><div className="num">0{i+1}</div><h3>{e[0]}</h3><div className="line"/><div className="eventRows"><span><CalendarDays size={15}/>{e[1]} · {e[2]}</span><span><MapPin size={15}/>{e[3]}</span><span><Clock size={15}/>{e[4]}</span></div><a href="#venue">See the route →</a></motion.article>)}</div></section>
+function EventCard({ event }: { event: (typeof events)[number] }) {
+  return (
+    <motion.article
+      className="referenceEvent"
+      style={{ left: event.x + "%", top: event.y + "%" }}
+      whileHover={{ y: -6 }}
+    >
+      <img src={art.eventCard} alt="" />
+      <div className="referenceEventCopy">
+        <h2>{event.title}</h2>
+        <p>{event.day}</p>
+        <p>{event.date}</p>
+        <p>{event.place}</p>
+        <p>{event.time}</p>
+        <small>More details below</small>
+      </div>
+    </motion.article>
+  );
+}
 
-<section className="portraitSection"><div className="portraitCopy"><p className="kicker">THE COUPLE</p><h2>Made for each<br/><em>other.</em></h2><p>Two stories, two families, one promise. We can't wait to celebrate this beautiful day with the people who make our lives special.</p><div className="heart"><Heart size={18} fill="currentColor"/></div></div><div className="portraitFrame"><img src={assets.portrait}/></div></section>
+function Bell({ side = "left" }: { side?: "left" | "right" }) {
+  return (
+    <div className={"bell " + side}>
+      <img src={side === "left" ? art.bellA : art.bellB} alt="Hanging bell" />
+    </div>
+  );
+}
 
-<section id="venue" className="temple"><img src={assets.temple}/><div className="templeOverlay"/><div className="templeText"><p className="kicker">THE SACRED VENUE</p><h2>Ram Mandir</h2><p>Pune, Maharashtra</p><button>Open directions <MapPin size={16}/></button></div></section>
+export function App() {
+  return (
+    <main className="referencePage referenceCanvas">
+      <section className="referenceHero">
+        <ParallaxLayer className="heroArtwork" distance={70}>
+          <img src={art.hero} alt="" />
+        </ParallaxLayer>
 
-<section className="countdown section"><p className="kicker">UNTIL WE SAY “I DO”</p><h2>The wait is almost <em>over.</em></h2><Countdown/><p className="closing">Come with your blessings. Stay for the celebration.</p></section>
+        <div className="heroDecor">
+          <ParallaxLayer className="heroLogo" distance={35}>
+            <img src={art.logo} alt="" />
+          </ParallaxLayer>
+          <ParallaxLayer className="heroSeal" distance={55}>
+            <img src={art.flowerSeal} alt="" />
+          </ParallaxLayer>
+          <Bell side="left" />
+          <Bell side="right" />
+          {events.map((event, index) => <EventCard key={index} event={event} />)}
+        </div>
+      </section>
 
-<footer><div className="footerMark">ॐ</div><h2>See you at the <em>mandap.</em></h2><p>With love, laughter &amp; a little bit of magic.</p><div className="footerLine"/></footer>
-</main>}
+      <section className="referenceMandap">
+        <ParallaxLayer className="mandapArtwork" distance={120}>
+          <img src={art.mandap} alt="" />
+        </ParallaxLayer>
+        <ParallaxLayer className="mandapStory" distance={70}>
+          <img src={art.story} alt="" />
+        </ParallaxLayer>
+        <img className="mandapRamMark" src={art.ramMark} alt="" />
+        <img className="mandapDiya" src={art.diya} alt="" />
+        <img className="mandapWordmark" src={art.floralWordmark} alt="" />
+      </section>
+
+      <section className="referenceGallery">
+        <ParallaxLayer className="galleryBg" distance={45}>
+          <img src={art.collageBg} alt="" />
+        </ParallaxLayer>
+        <ParallaxLayer className="galleryTop" distance={95}>
+          <img src={art.collageTop} alt="" />
+        </ParallaxLayer>
+        <ParallaxLayer className="galleryOne" distance={130}>
+          <img src={art.collageOne} alt="" />
+        </ParallaxLayer>
+        <ParallaxLayer className="galleryTwo" distance={170}>
+          <img src={art.collageTwo} alt="" />
+        </ParallaxLayer>
+        <ParallaxLayer className="galleryCenter" distance={210}>
+          <img src={art.collageCenter} alt="" />
+        </ParallaxLayer>
+      </section>
+
+      <section className="referenceTimeline">
+        <ParallaxLayer className="timelineArtwork" distance={100}>
+          <img src={art.timeline} alt="" />
+        </ParallaxLayer>
+        <div className="timelineOverlay">
+          <div className="timelineHeading">
+            <span>THE CELEBRATION</span>
+            <h2>Moments that become memories.</h2>
+          </div>
+          <div className="timelinePhotoRing">
+            {[
+              "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=400&h=400&fit=crop",
+              "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400&h=400&fit=crop",
+            ].map((src, i) => (
+              <ParallaxLayer key={src} className={"ringPhoto ringPhoto-" + i} distance={30 + i * 14}>
+                <img src={src} alt="" loading="lazy" />
+              </ParallaxLayer>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
