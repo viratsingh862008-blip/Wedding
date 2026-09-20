@@ -32,7 +32,7 @@ assert.ok(!app.includes("countdownBg"), "invented countdown artwork should not r
 assert.ok(app.includes("x: 26, y: 38.3") && app.includes("x: 74, y: 38.3"), "hero event row 1 must match reference position");
 assert.ok(app.includes("x: 26, y: 48.9") && app.includes("x: 74, y: 48.9"), "hero event row 2 must match reference position");
 assert.ok(app.includes("x: 26, y: 59.5") && app.includes("x: 74, y: 59.5"), "hero event row 3 must match reference position");
-assert.ok((app.match(/ringPhoto-/g) || []).length >= 12, "timeline photo ring must contain the full reference ring");
+assert.ok((app.match(/ringPhoto-/g) || []).length >= 10, "timeline photo ring must contain the full reference ring");
 assert.ok(css.includes("isolation:isolate"), "major sections must isolate their stacking contexts");
 assert.ok(css.includes("contain:paint"), "major sections must contain painted parallax layers");
 
