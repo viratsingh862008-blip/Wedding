@@ -29,11 +29,11 @@ const art = {
 
 const events = [
   { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 38.3 },
-  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 47 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 38.3 },
   { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 48.9 },
-  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 57.5 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 48.9 },
   { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 26, y: 59.5 },
-  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 68 },
+  { title: "Shaadi", day: "Friday", date: "29th Aug 2026", place: "Pune, Maharashtra", time: "6 Pm Onwards", x: 74, y: 59.5 },
 ];
 
 function EventCard({ event }: { event: (typeof events)[number] }) {
