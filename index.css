@@ -1,0 +1,117 @@
+@font-face{font-family:"IvyOra Display Medium";src:url("https://framerusercontent.com/assets/esEgKfF1krMj58So65QPNE3hO9M.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"IvyOra Display Regular";src:url("https://framerusercontent.com/assets/AJOxUfHbzm8hLnE4i9oMria0Bo.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Gotham Light";src:url("https://framerusercontent.com/assets/nTf7kWqWuaW0u54wOgNGSTii2iE.woff2") format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Gotham Book";src:url("https://framerusercontent.com/assets/NNRBQxj51i7Lha5HIiKhS1M350.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+
+:root{--brown:#5f250f;--rose:#ab5626;--paper:#ffefe2;--gold:#dda45d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:#fff}
+body{margin:0;background:#fff;color:var(--brown);font-family:"Gotham Light",sans-serif}
+img{display:block;max-width:none}
+.referenceCanvas{width:100%}
+.referencePage{position:relative;width:100%;overflow:hidden;background:#fff;transform:translate3d(0,0,0)}
+.referencePage::after{content:"";display:block;clear:both}
+
+.referenceHero{position:relative;width:100%;height:2452px;overflow:hidden;background:#fff}
+.heroArtwork{position:absolute;top:12.5%;left:0;width:101%;aspect-ratio:868/4326;z-index:1}
+.heroArtwork img{width:100%;height:100%;object-fit:cover}
+.heroDecor{position:absolute;inset:0;z-index:4;pointer-events:none}
+.heroLogo{position:absolute;top:69.2%;left:50%;width:120px;transform:translateX(-50%);z-index:5}
+.heroLogo img{width:100%;height:auto}
+.heroSeal{position:absolute;top:44.9%;left:50%;width:140px;transform:translateX(-50%);z-index:5;opacity:.96}
+.heroSeal img{width:100%;height:auto}
+.bell{position:absolute;top:42%;width:70px;height:202px;z-index:5;opacity:.9}
+.bell.left{left:0}
+.bell.right{right:0}
+.bell img{width:100%;height:100%;object-fit:contain}
+
+.referenceEvent{position:absolute;width:148px;height:360px;transform:translateX(-50%);pointer-events:auto;z-index:6}
+.referenceEvent>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.referenceEventCopy{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;color:var(--brown);text-align:center;padding:38px 8px 0}
+.referenceEventCopy h2{margin:0 0 22px;font:500 23px/1.2 "IvyOra Display Medium",serif;color:var(--rose)}
+.referenceEventCopy p{margin:0;font:300 12px/13.62px "Gotham Light",sans-serif}
+.referenceEventCopy small{position:absolute;bottom:77px;font:300 8px/14px "Gotham Light",sans-serif}
+
+.referenceMandap{position:relative;height:1800px;overflow:hidden;background:var(--paper)}
+.mandapArtwork{position:absolute;top:0;left:0;width:100%;aspect-ratio:869/948;z-index:1}
+.mandapArtwork img{width:100%;height:100%;object-fit:cover}
+.mandapStory{position:absolute;top:18%;left:0;width:100%;aspect-ratio:876/3156;z-index:3}
+.mandapStory img{width:100%;height:100%;object-fit:cover}
+.mandapRamMark{position:absolute;top:2%;left:50%;width:71px;transform:translateX(-50%);z-index:5}
+.mandapDiya{position:absolute;top:0;left:50%;width:41px;transform:translateX(-50%);z-index:5}
+.mandapWordmark{position:absolute;top:4%;left:50%;width:169px;transform:translateX(-50%);z-index:6}
+
+.referenceGallery{position:relative;height:1800px;overflow:hidden;background:var(--paper)}
+.galleryBg{position:absolute;inset:0;z-index:0}
+.galleryBg img{width:100%;height:100%;object-fit:cover}
+.galleryTop{position:absolute;top:0;left:0;width:100%;height:auto;z-index:5;transform:scale(2.3)}
+.galleryTop img{width:100%;height:auto;object-fit:contain}
+.galleryOne{position:absolute;top:10%;left:0;width:100%;z-index:4}
+.galleryOne img{width:100%;height:auto;object-fit:cover}
+.galleryTwo{position:absolute;top:25%;left:-3%;width:106%;z-index:5}
+.galleryTwo img{width:100%;height:auto;object-fit:cover}
+.galleryCenter{position:absolute;top:25%;left:43%;width:149px;z-index:7;transform:translateX(-50%) scale(1.5)}
+.galleryCenter img{width:100%;height:100%;object-fit:contain}
+
+.referenceTimeline{position:relative;height:1958px;overflow:hidden;background:var(--paper)}
+.timelineArtwork{position:absolute;top:-5%;left:0;width:100%;height:110%;z-index:0}
+.timelineArtwork img{width:100%;height:100%;object-fit:cover}
+.timelineOverlay{position:absolute;inset:0;z-index:2;pointer-events:none}
+.timelineHeading{position:absolute;top:9%;left:50%;width:min(900px,86%);transform:translateX(-50%);text-align:center;color:#fff}
+.timelineHeading span{display:block;font:300 12px/1 "Gotham Light",sans-serif;letter-spacing:.18em;margin-bottom:24px}
+.timelineHeading h2{margin:0;font:500 clamp(42px,5.5vw,90px)/.98 "IvyOra Display Medium",serif}
+.timelinePhotoRing{position:absolute;left:50%;top:26%;width:1000px;height:1000px;transform:translateX(-50%);transform-origin:center}
+.ringPhoto{position:absolute;width:160px;height:160px;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px #00000026}
+.ringPhoto img{width:100%;height:100%;object-fit:cover}
+.ringPhoto-0{left:420px;top:-80px}
+.ringPhoto-1{left:714px;top:15px;transform:rotate(36deg)}
+.ringPhoto-2{left:896px;top:265px;transform:rotate(72deg)}
+.ringPhoto-3{left:896px;top:575px;transform:rotate(108deg)}
+.ringPhoto-4{left:714px;top:825px;transform:rotate(144deg)}
+
+@media (min-width:700px){
+  .referenceHero{height:4300px}
+  .referenceMandap{height:2000px}
+  .referenceGallery{height:1800px}
+  .referenceTimeline{height:2500px}
+  .referenceEvent{width:clamp(148px,12vw,240px);height:clamp(360px,29vw,585px)}
+  .referenceEventCopy{padding-top:24%;padding-left:10px;padding-right:10px}
+  .referenceEventCopy h2{font-size:clamp(23px,1.8vw,34px);margin-bottom:16%}
+  .referenceEventCopy p{font-size:clamp(12px,1vw,18px);line-height:1.2}
+  .referenceEventCopy small{font-size:clamp(8px,.7vw,12px);bottom:21%}
+  .heroLogo{width:clamp(120px,9vw,169px)}
+  .heroSeal{width:clamp(140px,9vw,280px)}
+  .bell{width:clamp(70px,4vw,110px);height:auto;aspect-ratio:140/202}
+  .mandapRamMark{width:clamp(71px,4vw,120px)}
+  .mandapDiya{width:clamp(41px,2.5vw,70px)}
+  .mandapWordmark{width:clamp(169px,9vw,280px)}
+}
+
+@media (min-width:1280px){
+  .referenceHero{height:4600px}
+  .referenceMandap{height:2100px}
+  .referenceGallery{height:1900px}
+  .referenceTimeline{height:3000px}
+}
+
+@media (min-width:1600px){
+  .referenceHero{height:4700px}
+  .referenceMandap{height:2200px}
+  .referenceGallery{height:2000px}
+  .referenceTimeline{height:3000px}
+}
+
+@media (max-width:360px){
+  .referenceHero{height:2200px}
+  .referenceMandap{height:1300px}
+  .referenceGallery{height:900px}
+  .referenceTimeline{height:1293px}
+  .referenceEvent{width:118px;height:300px}
+  .referenceEventCopy{padding-top:32px}
+  .referenceEventCopy h2{font-size:19px}
+  .referenceEventCopy p{font-size:10px;line-height:11px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+}

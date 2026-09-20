@@ -1,0 +1,23 @@
+import {useEffect,useState} from 'react';import{motion,useScroll,useTransform}from'motion/react';import{ChevronDown,MapPin,CalendarDays,Clock,Heart}from'lucide-react';
+
+const A='https://framerusercontent.com/images/';
+const assets={hero:A+'ctlwo5LpuBk9eskYOT9Z2MD8wso.webp?width=868&height=4326',portrait:A+'TUkRvFIUDwblbb4eewkBlJzZwJw.png?width=1515&height=2342',arch:A+'Zrnq96rxcNCLdk4Yaz94Dup5Q.webp?width=886&height=464',couple:A+'qTlCAkdnbuZVEx4RAWSlgsGHX0.webp?width=1200&height=968',scene:A+'fXdVaVM1Iocp7HSsFNQd7A9zHrw.webp?width=1515&height=1010',temple:A+'VSWKtKY9anp40BO4QazdQK473tQ.webp?width=1515&height=1058',detail:A+'w2VucNwOfPZvxA8ibgdnaWF7T4.webp?width=1200&height=968'};
+const events=[['Engagement','Friday','29 Aug 2026','Pune, Maharashtra','6 PM Onwards'],['Haldi','Saturday','30 Aug 2026','The Courtyard','11 AM Onwards'],['Mehendi','Saturday','30 Aug 2026','Heritage House','4 PM Onwards'],['Wedding','Sunday','31 Aug 2026','Ram Mandir','7 PM Onwards']];
+function Countdown(){const target=new Date('2026-08-31T19:00:00+05:30').getTime();const[time,setTime]=useState(target-Date.now());useEffect(()=>{const i=setInterval(()=>setTime(target-Date.now()),1000);return()=>clearInterval(i)},[]);const s=Math.max(0,Math.floor(time/1000));const vals=[Math.floor(s/86400),Math.floor(s/3600)%24,Math.floor(s/60)%60,s%60];return <div className="count">{vals.map((v,i)=><div className="countBox" key={i}><b>{String(v).padStart(2,'0')}</b><span>{['Days','Hours','Minutes','Seconds'][i]}</span></div>)}</div>}
+export function App(){const{scrollYProgress}=useScroll();const bg=useTransform(scrollYProgress,[0,.18],[0,-80]);const mid=useTransform(scrollYProgress,[0,.18],[0,-180]);const fg=useTransform(scrollYProgress,[0,.18],[0,-340]);const fade=useTransform(scrollYProgress,[0,.12, .2],[1,1,0]);return <main>
+<section className="hero"><motion.img style={{y:bg}} className="heroImg" src={assets.hero}/><div className="heroShade"/><motion.div style={{y:mid}} className="heroLayer"><img src={assets.arch}/></motion.div><motion.div style={{y:fg}} className="heroContent"><div className="eyebrow">A DIVINE WEDDING INVITATION</div><motion.div style={{opacity:fade}}><h1>Shaadi</h1><p className="script">with blessings of Ram</p><div className="heroMeta"><span>29 — 31 AUGUST 2026</span><i>•</i><span>PUNE, MAHARASHTRA</span></div></motion.div></motion.div><motion.div style={{opacity:fade}} className="scrollHint"><ChevronDown size={18}/><span>More details below</span></motion.div></section>
+
+<section className="intro section"><div className="ornament">✦</div><p className="kicker">SHUBH VIVAH</p><h2>Two hearts,<br/><em>one sacred journey.</em></h2><p className="lead">With the blessings of the divine, our families invite you to celebrate a beautiful beginning filled with love, laughter and timeless traditions.</p></section>
+
+<section className="photoBand"><img src={assets.scene}/><div className="photoCaption"><span>THE CELEBRATION</span><h3>Moments that become memories.</h3></div></section>
+
+<section className="events section"><p className="kicker">THE ITINERARY</p><h2>Join us for every <em>chapter.</em></h2><div className="eventGrid">{events.map((e,i)=><motion.article whileHover={{y:-8}} className="eventCard" key={e[0]}><div className="num">0{i+1}</div><h3>{e[0]}</h3><div className="line"/><div className="eventRows"><span><CalendarDays size={15}/>{e[1]} · {e[2]}</span><span><MapPin size={15}/>{e[3]}</span><span><Clock size={15}/>{e[4]}</span></div><a href="#venue">See the route →</a></motion.article>)}</div></section>
+
+<section className="portraitSection"><div className="portraitCopy"><p className="kicker">THE COUPLE</p><h2>Made for each<br/><em>other.</em></h2><p>Two stories, two families, one promise. We can't wait to celebrate this beautiful day with the people who make our lives special.</p><div className="heart"><Heart size={18} fill="currentColor"/></div></div><div className="portraitFrame"><img src={assets.portrait}/></div></section>
+
+<section id="venue" className="temple"><img src={assets.temple}/><div className="templeOverlay"/><div className="templeText"><p className="kicker">THE SACRED VENUE</p><h2>Ram Mandir</h2><p>Pune, Maharashtra</p><button>Open directions <MapPin size={16}/></button></div></section>
+
+<section className="countdown section"><p className="kicker">UNTIL WE SAY “I DO”</p><h2>The wait is almost <em>over.</em></h2><Countdown/><p className="closing">Come with your blessings. Stay for the celebration.</p></section>
+
+<footer><div className="footerMark">ॐ</div><h2>See you at the <em>mandap.</em></h2><p>With love, laughter &amp; a little bit of magic.</p><div className="footerLine"/></footer>
+</main>}
