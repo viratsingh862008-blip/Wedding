@@ -12,7 +12,7 @@ img{display:block;max-width:none}
 .referencePage{position:relative;width:100%;overflow:hidden;background:#fff;transform:translate3d(0,0,0)}
 .referencePage::after{content:"";display:block;clear:both}
 
-.referenceHero{position:relative;width:100%;height:2452px;overflow:hidden;background:#fff}
+.referenceHero{isolation:isolate;contain:paint;position:relative;width:100%;height:2452px;overflow:hidden;background:#fff}
 .heroArtwork{position:absolute;top:12.5%;left:0;width:101%;aspect-ratio:868/4326;z-index:1}
 .heroArtwork img{width:100%;height:100%;object-fit:cover}
 .heroDecor{position:absolute;inset:0;z-index:4;pointer-events:none}
@@ -32,7 +32,7 @@ img{display:block;max-width:none}
 .referenceEventCopy p{margin:0;font:300 12px/13.62px "Gotham Light",sans-serif}
 .referenceEventCopy small{position:absolute;bottom:77px;font:300 8px/14px "Gotham Light",sans-serif}
 
-.referenceMandap{position:relative;height:1800px;overflow:hidden;background:var(--paper)}
+.referenceMandap{isolation:isolate;contain:paint;position:relative;height:1800px;overflow:hidden;background:var(--paper)}
 .mandapArtwork{position:absolute;top:0;left:0;width:100%;aspect-ratio:869/948;z-index:1}
 .mandapArtwork img{width:100%;height:100%;object-fit:cover}
 .mandapStory{position:absolute;top:18%;left:0;width:100%;aspect-ratio:876/3156;z-index:3}
@@ -41,7 +41,7 @@ img{display:block;max-width:none}
 .mandapDiya{position:absolute;top:0;left:50%;width:41px;transform:translateX(-50%);z-index:5}
 .mandapWordmark{position:absolute;top:4%;left:50%;width:169px;transform:translateX(-50%);z-index:6}
 
-.referenceGallery{position:relative;height:1800px;overflow:hidden;background:var(--paper)}
+.referenceGallery{isolation:isolate;contain:paint;position:relative;height:1800px;overflow:hidden;background:var(--paper)}
 .galleryBg{position:absolute;inset:0;z-index:0}
 .galleryBg img{width:100%;height:100%;object-fit:cover}
 .galleryTop{position:absolute;top:0;left:0;width:100%;height:auto;z-index:5;transform:scale(2.3)}
@@ -53,7 +53,7 @@ img{display:block;max-width:none}
 .galleryCenter{position:absolute;top:25%;left:43%;width:149px;z-index:7;transform:translateX(-50%) scale(1.5)}
 .galleryCenter img{width:100%;height:100%;object-fit:contain}
 
-.referenceTimeline{position:relative;height:1958px;overflow:hidden;background:var(--paper)}
+.referenceTimeline{isolation:isolate;contain:paint;position:relative;height:1958px;overflow:hidden;background:var(--paper)}
 .timelineArtwork{position:absolute;top:-5%;left:0;width:100%;height:110%;z-index:0}
 .timelineArtwork img{width:100%;height:100%;object-fit:cover}
 .timelineOverlay{position:absolute;inset:0;z-index:2;pointer-events:none}
