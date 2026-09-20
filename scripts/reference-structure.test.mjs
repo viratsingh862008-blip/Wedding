@@ -1,10 +1,8 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-const app = readFileSync("App.tsx", "utf8");
-const entryApp = readFileSync("src/App.tsx", "utf8");
-const entryCss = readFileSync("src/index.css", "utf8");
-const css = readFileSync("index.css", "utf8");
+const app = readFileSync("src/App.tsx", "utf8");
+const css = readFileSync("src/index.css", "utf8");
 
 const referenceAssets = [
   "ctlwo5LpuBk9eskYOT9Z2MD8wso",
