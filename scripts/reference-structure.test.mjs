@@ -40,9 +40,9 @@ console.log("reference-structure: PASS");
 // not four sequential flow sections. These are the measured desktop anchors from the
 // rendered reference DOM; mobile uses its own compressed canvas in index.css.
 assert.ok(css.includes(".referencePage{position:relative"), "reference page must own the coordinate canvas");
-assert.ok(css.includes(".referenceHero{position:absolute;top:0"), "hero must anchor at the canvas origin");
-assert.ok(css.includes(".referenceMandap{position:absolute;top:2228px"), "timeline/mandap segment must overlap from the reference anchor");
-assert.ok(css.includes(".referenceGallery{position:absolute;top:4642px"), "gallery segment must use the reference anchor");
-assert.ok(css.includes(".referenceTimeline{position:absolute;top:8529px"), "final segment must use the reference anchor");
+assert.ok(css.includes(".referenceHero{isolation:isolate;contain:paint;position:absolute;top:0"), "hero must anchor at the canvas origin");
+assert.ok(css.includes(".referenceMandap{isolation:isolate;contain:paint;position:absolute;top:2228px"), "timeline/mandap segment must overlap from the reference anchor");
+assert.ok(css.includes(".referenceGallery{isolation:isolate;contain:paint;position:absolute;top:4642px"), "gallery segment must use the reference anchor");
+assert.ok(css.includes(".referenceTimeline{isolation:isolate;contain:paint;position:absolute;top:8529px"), "final segment must use the reference anchor");
 assert.ok(css.includes("height:10823px"), "desktop reference canvas must reserve the overlapping composition height");
 assert.ok(css.includes("@media (max-width:699px)"), "mobile composition needs its own segment geometry");
