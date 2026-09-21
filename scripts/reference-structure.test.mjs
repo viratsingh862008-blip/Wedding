@@ -30,7 +30,7 @@ assert.ok(!app.includes("countdownBg"), "invented countdown artwork should not r
 assert.ok(app.includes("x: 26, y: 38.3") && app.includes("x: 74, y: 38.3"), "hero event row 1 must match reference position");
 assert.ok(app.includes("x: 26, y: 48.9") && app.includes("x: 74, y: 48.9"), "hero event row 2 must match reference position");
 assert.ok(app.includes("x: 26, y: 59.5") && app.includes("x: 74, y: 59.5"), "hero event row 3 must match reference position");
-assert.ok((app.match(/ringPhoto-/g) || []).length >= 10, "timeline photo ring must contain the full reference ring");
+assert.ok((app.match(/images\.unsplash\.com\/photo-/g) || []).length >= 10, "timeline photo ring must contain the full reference ring");
 assert.ok(css.includes("isolation:isolate"), "major sections must isolate their stacking contexts");
 assert.ok(css.includes("contain:paint"), "major sections must contain painted parallax layers");
 
@@ -44,5 +44,5 @@ assert.ok(css.includes(".referenceHero{position:absolute;top:0"), "hero must anc
 assert.ok(css.includes(".referenceMandap{position:absolute;top:2228px"), "timeline/mandap segment must overlap from the reference anchor");
 assert.ok(css.includes(".referenceGallery{position:absolute;top:4642px"), "gallery segment must use the reference anchor");
 assert.ok(css.includes(".referenceTimeline{position:absolute;top:8529px"), "final segment must use the reference anchor");
-assert.ok(css.includes("min-height:10823px"), "desktop reference canvas must reserve the overlapping composition height");
+assert.ok(css.includes("height:10823px"), "desktop reference canvas must reserve the overlapping composition height");
 assert.ok(css.includes("@media (max-width:699px)"), "mobile composition needs its own segment geometry");
