@@ -41,8 +41,8 @@ console.log("reference-structure: PASS");
 // rendered reference DOM; mobile uses its own compressed canvas in index.css.
 assert.ok(css.includes(".referencePage{position:relative"), "reference page must own the coordinate canvas");
 assert.ok(css.includes(".referenceHero{isolation:isolate;contain:paint;position:absolute;top:0"), "hero must anchor at the canvas origin");
-assert.ok(css.includes(".referenceMandap{isolation:isolate;contain:paint;position:absolute;top:2228px"), "timeline/mandap segment must overlap from the reference anchor");
-assert.ok(css.includes(".referenceGallery{isolation:isolate;contain:paint;position:absolute;top:4642px"), "gallery segment must use the reference anchor");
-assert.ok(css.includes(".referenceTimeline{isolation:isolate;contain:paint;position:absolute;top:8529px"), "final segment must use the reference anchor");
+assert.ok(css.includes(".referenceMandap{top:2228px;height:4380px"), "timeline/mandap segment must overlap from the reference anchor");
+assert.ok(css.includes(".referenceGallery{top:4642px;height:2157px"), "gallery segment must use the reference anchor");
+assert.ok(css.includes(".referenceTimeline{top:8529px;height:2294px"), "final segment must use the reference anchor");
 assert.ok(css.includes("height:10823px"), "desktop reference canvas must reserve the overlapping composition height");
 assert.ok(css.includes("@media (max-width:699px)"), "mobile composition needs its own segment geometry");
