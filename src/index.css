@@ -9,10 +9,10 @@ html{scroll-behavior:smooth;background:#fff}
 body{margin:0;background:#fff;color:var(--brown);font-family:"Gotham Light",sans-serif}
 img{display:block;max-width:none}
 .referenceCanvas{width:100%}
-.referencePage{position:relative;width:100%;overflow:hidden;background:#fff;transform:translate3d(0,0,0)}
+.referencePage{position:relative;width:100%;height:6180px;overflow:hidden;background:#fff;transform:translate3d(0,0,0)}
 .referencePage::after{content:"";display:block;clear:both}
 
-.referenceHero{isolation:isolate;contain:paint;position:relative;width:100%;height:2452px;overflow:hidden;background:#fff}
+.referenceHero{isolation:isolate;contain:paint;position:absolute;top:0;left:0;width:100%;height:2452px;overflow:hidden;background:#fff}
 .heroArtwork{position:absolute;top:12.5%;left:0;width:101%;aspect-ratio:868/4326;z-index:1}
 .heroArtwork img{width:100%;height:100%;object-fit:cover}
 .heroDecor{position:absolute;inset:0;z-index:4;pointer-events:none}
@@ -32,7 +32,7 @@ img{display:block;max-width:none}
 .referenceEventCopy p{margin:0;font:300 12px/13.62px "Gotham Light",sans-serif}
 .referenceEventCopy small{position:absolute;bottom:77px;font:300 8px/14px "Gotham Light",sans-serif}
 
-.referenceMandap{isolation:isolate;contain:paint;position:relative;height:1800px;overflow:hidden;background:var(--paper)}
+.referenceMandap{isolation:isolate;contain:paint;position:absolute;top:1800px;left:0;width:100%;height:2200px;overflow:hidden;background:var(--paper)}
 .mandapArtwork{position:absolute;top:0;left:0;width:100%;aspect-ratio:869/948;z-index:1}
 .mandapArtwork img{width:100%;height:100%;object-fit:cover}
 .mandapStory{position:absolute;top:18%;left:0;width:100%;aspect-ratio:876/3156;z-index:3}
@@ -41,7 +41,7 @@ img{display:block;max-width:none}
 .mandapDiya{position:absolute;top:0;left:50%;width:41px;transform:translateX(-50%);z-index:5}
 .mandapWordmark{position:absolute;top:4%;left:50%;width:169px;transform:translateX(-50%);z-index:6}
 
-.referenceGallery{isolation:isolate;contain:paint;position:relative;height:1800px;overflow:hidden;background:var(--paper)}
+.referenceGallery{isolation:isolate;contain:paint;position:absolute;top:3300px;left:0;width:100%;height:1800px;overflow:hidden;background:var(--paper)}
 .galleryBg{position:absolute;inset:0;z-index:0}
 .galleryBg img{width:100%;height:100%;object-fit:cover}
 .galleryTop{position:absolute;top:0;left:0;width:100%;height:auto;z-index:5;transform:scale(2.3)}
@@ -53,7 +53,7 @@ img{display:block;max-width:none}
 .galleryCenter{position:absolute;top:25%;left:43%;width:149px;z-index:7;transform:translateX(-50%) scale(1.5)}
 .galleryCenter img{width:100%;height:100%;object-fit:contain}
 
-.referenceTimeline{isolation:isolate;contain:paint;position:relative;height:1958px;overflow:hidden;background:var(--paper)}
+.referenceTimeline{isolation:isolate;contain:paint;position:absolute;top:4522px;left:0;width:100%;height:1658px;overflow:hidden;background:var(--paper)}
 .timelineArtwork{position:absolute;top:-5%;left:0;width:100%;height:110%;z-index:0}
 .timelineArtwork img{width:100%;height:100%;object-fit:cover}
 .timelineOverlay{position:absolute;inset:0;z-index:2;pointer-events:none}
@@ -70,10 +70,11 @@ img{display:block;max-width:none}
 .ringPhoto-4{left:714px;top:825px;transform:rotate(144deg)}
 
 @media (min-width:700px){
-  .referenceHero{height:4300px}
-  .referenceMandap{height:2000px}
-  .referenceGallery{height:1800px}
-  .referenceTimeline{height:2500px}
+  .referencePage{height:10823px}
+  .referenceHero{top:0;height:4788px}
+  .referenceMandap{top:2228px;height:4380px}
+  .referenceGallery{top:4642px;height:2157px}
+  .referenceTimeline{top:8529px;height:2294px}
   .referenceEvent{width:clamp(148px,12vw,240px);height:clamp(360px,29vw,585px)}
   .referenceEventCopy{padding-top:24%;padding-left:10px;padding-right:10px}
   .referenceEventCopy h2{font-size:clamp(23px,1.8vw,34px);margin-bottom:16%}
@@ -88,24 +89,23 @@ img{display:block;max-width:none}
 }
 
 @media (min-width:1280px){
-  .referenceHero{height:4600px}
-  .referenceMandap{height:2100px}
-  .referenceGallery{height:1900px}
-  .referenceTimeline{height:3000px}
+  .referencePage{height:10823px}
 }
 
 @media (min-width:1600px){
-  .referenceHero{height:4700px}
-  .referenceMandap{height:2200px}
-  .referenceGallery{height:2000px}
-  .referenceTimeline{height:3000px}
+  .referencePage{height:10823px}
+}
+
+@media (max-width:699px){
+  .referencePage{height:6180px}
 }
 
 @media (max-width:360px){
+  .referencePage{height:5600px}
   .referenceHero{height:2200px}
-  .referenceMandap{height:1300px}
-  .referenceGallery{height:900px}
-  .referenceTimeline{height:1293px}
+  .referenceMandap{top:1500px;height:1900px}
+  .referenceGallery{top:3000px;height:1500px}
+  .referenceTimeline{top:4100px;height:1500px}
   .referenceEvent{width:118px;height:300px}
   .referenceEventCopy{padding-top:32px}
   .referenceEventCopy h2{font-size:19px}
